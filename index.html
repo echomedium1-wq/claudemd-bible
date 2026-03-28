@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The CLAUDE.md Bible - 25 Stack-Specific Configs for Claude Code</title>
+    <meta name="description" content="25 ready-to-use CLAUDE.md configuration files for Claude Code. Stack-specific configs for React, Next.js, FastAPI, Django, Svelte, Vue, Chrome Extensions, CLI tools, MCP servers and more. Stop fighting Claude Code.">
+    <meta name="keywords" content="CLAUDE.md, Claude Code, Claude Code config, Claude Code configuration, Claude Code setup, AI coding, AI developer tools, CLAUDE.md template, CLAUDE.md examples, Claude Code prompts, Claude Code instructions, vibe coding, AI pair programming">
+    <link rel="canonical" href="https://echomedium1-wq.github.io/claudemd-bible/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="The CLAUDE.md Bible - 25 Stack-Specific Configs for Claude Code">
+    <meta property="og:description" content="Drop-in CLAUDE.md configs that make Claude Code actually follow your project rules. 25 stacks covered.">
+    <meta property="og:type" content="product">
+    <meta property="og:url" content="https://echomedium1-wq.github.io/claudemd-bible/">
+    <meta property="og:image" content="https://echomedium1-wq.github.io/claudemd-bible/cover.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The CLAUDE.md Bible - 25 Stack-Specific Configs for Claude Code">
+    <meta name="twitter:description" content="Drop-in CLAUDE.md configs that make Claude Code actually follow your project rules. 25 stacks covered.">
+
+    <!-- Schema.org Product structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "The CLAUDE.md Bible",
+        "description": "25 stack-specific CLAUDE.md configuration files for Claude Code covering React, Next.js, FastAPI, Django, Svelte, Vue, Astro, Chrome Extensions, CLI tools, MCP servers and more. Each config is 80-150 lines of battle-tested rules plus a masterclass guide.",
+        "brand": {
+            "@type": "Brand",
+            "name": "Echo Dev"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "29",
+            "priceCurrency": "USD",
+            "url": "https://echochime3.gumroad.com/l/claudemd-bible",
+            "availability": "https://schema.org/InStock"
+        },
+        "category": "Developer Tools",
+        "keywords": "CLAUDE.md, Claude Code, AI coding, developer tools, configuration"
+    }
+    </script>
+
+    <!-- Schema.org FAQ structured data for rich snippets -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is a CLAUDE.md file?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A CLAUDE.md file is a project-level configuration file that Claude Code reads automatically when it enters your project. It tells Claude your tech stack, folder structure, coding conventions, forbidden patterns, and testing expectations. It persists across sessions so you never have to repeat instructions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I use a CLAUDE.md config?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Drop the CLAUDE.md file into your project root directory. Claude Code automatically detects and reads it at the start of every session. No setup, no installation, no configuration beyond the file itself."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What tech stacks are covered?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "25 stacks: React, Next.js (App Router and Pages Router), Astro, Svelte/SvelteKit, Vue 3/Nuxt, FastAPI, Express, Django, Flask, Supabase Edge Functions, Cloudflare Workers, Remix, T3 Stack, Chrome Extensions (Manifest V3), CLI tools (Node.js and Python), MCP Servers, Monorepo/Turborepo, GitHub Actions, and more."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does Claude Code ignore my instructions?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Claude Code loses context between prompts and sessions. Without a CLAUDE.md file, it has no persistent memory of your project rules. A well-structured CLAUDE.md with forbidden actions, stack declarations, and folder structure maps solves this by giving Claude persistent project context."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.7; color: #1a1a2e; background: #fafafa; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+        header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 60px 0 50px; text-align: center; }
+        header h1 { font-size: 2.4rem; margin-bottom: 16px; line-height: 1.2; }
+        header p { font-size: 1.15rem; opacity: 0.9; max-width: 600px; margin: 0 auto 28px; }
+        .cta-btn { display: inline-block; background: #e94560; color: white; text-decoration: none; padding: 14px 36px; border-radius: 8px; font-size: 1.1rem; font-weight: 600; transition: background 0.2s; }
+        .cta-btn:hover { background: #d63851; }
+        .cta-secondary { background: transparent; border: 2px solid white; margin-left: 12px; }
+        .cta-secondary:hover { background: rgba(255,255,255,0.1); }
+        section { padding: 48px 0; }
+        h2 { font-size: 1.7rem; margin-bottom: 20px; color: #1a1a2e; }
+        h3 { font-size: 1.2rem; margin: 20px 0 8px; color: #16213e; }
+        p, li { font-size: 1.05rem; color: #333; }
+        ul { padding-left: 20px; margin: 12px 0; }
+        li { margin-bottom: 6px; }
+        .stack-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin: 20px 0; }
+        .stack-card { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; }
+        .stack-card h4 { font-size: 0.95rem; color: #16213e; margin-bottom: 4px; }
+        .stack-card p { font-size: 0.88rem; color: #666; margin: 0; }
+        .faq { background: white; border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 12px; padding: 20px; }
+        .faq h3 { margin: 0 0 8px; font-size: 1.05rem; }
+        .faq p { margin: 0; font-size: 0.95rem; }
+        .links-section { background: #f0f0f5; padding: 40px 0; }
+        .links-section a { color: #e94560; text-decoration: none; font-weight: 500; }
+        .links-section a:hover { text-decoration: underline; }
+        footer { background: #1a1a2e; color: rgba(255,255,255,0.7); text-align: center; padding: 30px 0; font-size: 0.9rem; }
+        @media (max-width: 600px) { header h1 { font-size: 1.8rem; } .cta-secondary { display: block; margin: 12px auto 0; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>The CLAUDE.md Bible</h1>
+        <p>25 stack-specific CLAUDE.md configs that make Claude Code actually follow your project rules. Drop one file in, stop repeating yourself every session.</p>
+        <a href="https://echochime3.gumroad.com/l/claudemd-bible" class="cta-btn">Get the Full Bundle - $29</a>
+        <a href="https://echochime3.gumroad.com/l/claudemd-free" class="cta-btn cta-secondary">Free 2-Config Starter Pack</a>
+    </div>
+</header>
+
+<section>
+    <div class="container">
+        <h2>Why You Need a CLAUDE.md File</h2>
+        <p>Without a CLAUDE.md, Claude Code has zero persistent memory of your project. Every session starts from scratch. It picks the wrong framework, installs packages you banned, restructures files that were already working, and forgets your conventions between prompts.</p>
+        <p style="margin-top:16px;">A CLAUDE.md file fixes this. It sits in your project root and tells Claude Code your tech stack, folder structure, coding conventions, forbidden patterns, and testing expectations. Claude reads it automatically at the start of every session. <strong>One file replaces the ten minutes of corrections you do at the start of every conversation.</strong></p>
+
+        <h3>The problem is writing a good one</h3>
+        <p>A generic CLAUDE.md helps a little. A <em>stack-specific</em> CLAUDE.md that knows the exact pitfalls of your framework changes everything. React has different failure modes than FastAPI. Next.js App Router needs different rules than Pages Router. Chrome Extensions have constraints that no general config covers.</p>
+        <p style="margin-top:12px;">The CLAUDE.md Bible gives you 25 configs — each one built for a specific stack, tested against the real mistakes Claude makes in that stack, and ready to use in under 60 seconds.</p>
+    </div>
+</section>
+
+<section style="background:#f8f8fc;">
+    <div class="container">
+        <h2>25 Stack-Specific Configs Included</h2>
+
+        <h3>Frontend (8 configs)</h3>
+        <div class="stack-grid">
+            <div class="stack-card"><h4>React + Vite + Tailwind</h4><p>SPAs, dashboards, internal tools</p></div>
+            <div class="stack-card"><h4>Next.js App Router</h4><p>SSR apps, SEO-critical products</p></div>
+            <div class="stack-card"><h4>Next.js Pages Router</h4><p>Existing Next.js projects using pages/</p></div>
+            <div class="stack-card"><h4>Astro</h4><p>Content sites, blogs, landing pages</p></div>
+            <div class="stack-card"><h4>Svelte / SvelteKit</h4><p>Performance-first web apps</p></div>
+            <div class="stack-card"><h4>Vue 3 / Nuxt</h4><p>Vue ecosystem projects</p></div>
+            <div class="stack-card"><h4>Vanilla HTML/CSS/JS</h4><p>Simple sites, prototypes</p></div>
+            <div class="stack-card"><h4>React + Capacitor</h4><p>Cross-platform mobile apps</p></div>
+        </div>
+
+        <h3>Backend (6 configs)</h3>
+        <div class="stack-grid">
+            <div class="stack-card"><h4>FastAPI + PostgreSQL</h4><p>Async Python APIs</p></div>
+            <div class="stack-card"><h4>Express + MongoDB</h4><p>Node.js APIs with document storage</p></div>
+            <div class="stack-card"><h4>Django + DRF</h4><p>Full-featured Python APIs</p></div>
+            <div class="stack-card"><h4>Flask</h4><p>Lightweight Python APIs</p></div>
+            <div class="stack-card"><h4>Supabase Edge Functions</h4><p>Serverless with Supabase</p></div>
+            <div class="stack-card"><h4>Cloudflare Workers</h4><p>Edge-first serverless</p></div>
+        </div>
+
+        <h3>Fullstack (5 configs)</h3>
+        <div class="stack-grid">
+            <div class="stack-card"><h4>Next.js + Supabase</h4><p>Fullstack with auth, DB, storage</p></div>
+            <div class="stack-card"><h4>Remix + Prisma</h4><p>Data-heavy apps</p></div>
+            <div class="stack-card"><h4>T3 Stack</h4><p>End-to-end type-safe TypeScript</p></div>
+            <div class="stack-card"><h4>FastAPI + React SPA</h4><p>Python backend + React frontend</p></div>
+            <div class="stack-card"><h4>Django + HTMX</h4><p>Server-rendered with interactivity</p></div>
+        </div>
+
+        <h3>Specialized (6 configs)</h3>
+        <div class="stack-grid">
+            <div class="stack-card"><h4>Chrome Extension (MV3)</h4><p>Browser extensions, content scripts</p></div>
+            <div class="stack-card"><h4>CLI Tool (Node.js)</h4><p>Command-line tools in Node</p></div>
+            <div class="stack-card"><h4>CLI Tool (Python)</h4><p>Command-line tools in Python</p></div>
+            <div class="stack-card"><h4>MCP Server (TypeScript)</h4><p>Model Context Protocol servers</p></div>
+            <div class="stack-card"><h4>Monorepo (Turborepo)</h4><p>Multi-package repositories</p></div>
+            <div class="stack-card"><h4>GitHub Action</h4><p>Custom CI/CD actions</p></div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Plus: The CLAUDE.md Masterclass Guide</h2>
+        <p>Learn how CLAUDE.md files work under the hood so you can modify configs and write your own:</p>
+        <ul>
+            <li>What CLAUDE.md does at the system level and why it controls behavior more than your prompts</li>
+            <li>The exact anatomy of an effective config: which sections matter, what order, how much detail</li>
+            <li>The "Forbidden Actions" pattern — the single most effective technique for stopping Claude from going off-rails</li>
+            <li>How to handle multi-developer teams with different rules</li>
+            <li>When and how to update your CLAUDE.md as your project grows</li>
+            <li>Advanced techniques for large codebases and monorepos</li>
+        </ul>
+    </div>
+</section>
+
+<section style="background:#f8f8fc;">
+    <div class="container">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq">
+            <h3>What is a CLAUDE.md file?</h3>
+            <p>A CLAUDE.md file is a project-level configuration file that Claude Code reads automatically when it opens your project. It gives Claude persistent context about your tech stack, folder structure, coding conventions, and forbidden patterns — so you never have to repeat instructions between sessions.</p>
+        </div>
+
+        <div class="faq">
+            <h3>How do I use a CLAUDE.md config?</h3>
+            <p>Drop the file into your project root directory and rename it to CLAUDE.md. That's it. Claude Code automatically detects and reads it at the start of every session. No setup, no installation, no configuration beyond the file itself.</p>
+        </div>
+
+        <div class="faq">
+            <h3>What tech stacks are covered?</h3>
+            <p>25 stacks: React, Next.js (App Router and Pages Router), Astro, Svelte/SvelteKit, Vue 3/Nuxt, FastAPI, Express, Django, Flask, Supabase Edge Functions, Cloudflare Workers, Remix, T3 Stack, Chrome Extensions (Manifest V3), CLI tools (Node.js and Python), MCP Servers, Monorepo/Turborepo, GitHub Actions, and a blank template for custom stacks.</p>
+        </div>
+
+        <div class="faq">
+            <h3>Why does Claude Code ignore my instructions?</h3>
+            <p>Claude Code loses context between prompts and sessions. Without a CLAUDE.md file, it has no persistent memory of your project rules. A well-structured CLAUDE.md with forbidden actions, stack declarations, and folder structure maps gives Claude persistent project context that survives across every session.</p>
+        </div>
+
+        <div class="faq">
+            <h3>Is there a free version?</h3>
+            <p>Yes. The free starter pack includes 2 configs (React + Vite and FastAPI + PostgreSQL) so you can see the quality before buying the full bundle.</p>
+        </div>
+    </div>
+</section>
+
+<section class="links-section">
+    <div class="container">
+        <h2>Read More</h2>
+        <ul>
+            <li><a href="https://devtoolingnotes.hashnode.dev/the-claude-md-patterns-that-actually-make-claude-code-listen">The CLAUDE.md Patterns That Actually Make Claude Code Listen</a> (Hashnode)</li>
+            <li><a href="https://medium.com/@echomedium1/how-one-file-makes-claude-code-actually-follow-your-instructions-5d900a177671">How One File Makes Claude Code Actually Follow Your Instructions</a> (Medium)</li>
+            <li><a href="https://news.ycombinator.com/item?id=47556048">Discussion on Hacker News</a></li>
+            <li><a href="https://programming.dev/post/47928060">Stack-specific CLAUDE.md patterns that stop Claude Code from going off-rails</a> (programming.dev)</li>
+        </ul>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>The CLAUDE.md Bible &copy; 2026 Echo Dev. Built for developers who use Claude Code.</p>
+    </div>
+</footer>
+
+</body>
+</html>
