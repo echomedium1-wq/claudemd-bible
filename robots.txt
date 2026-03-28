@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://echomedium1-wq.github.io/claudemd-bible/sitemap.xml
